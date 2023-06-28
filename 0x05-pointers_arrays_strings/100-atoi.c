@@ -6,36 +6,35 @@
  */
 int _atoi(char *s)
 {
-	int sign = 1;
-	int result = 0;
-	int i = 0;
+    int sign = 1;
+    int result = 0;
+    int i = 0;
 
-	/* Handling sign */
-	if (s[0] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (s[0] == '+')
-	{
-		i++;
-	}
+    /* Handling sign */
+    while (s[i] == '-' || s[i] == '+')
+    {
+        if (s[i] == '-')
+        {
+            sign *= -1;
+        }
+        i++;
+    }
 
-	/* Converting string to integer */
-	while (s[i] != '\0')
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			result = result * 10 + (s[i] - '0');
-		}
-		else
-		{
-			/* Stop conversion if a non-digit character is encountered */
-			break;
-		}
+    /* Converting string to integer */
+    while (s[i] != '\0')
+    {
+        if (s[i] >= '0' && s[i] <= '9')
+        {
+            result = result * 10 + (s[i] - '0');
+        }
+        else
+        {
+            /* Stop conversion if a non-digit character is encountered */
+            break;
+        }
 
-		i++;
-	}
+        i++;
+    }
 
-	return result * sign;
+    return result * sign;
 }
