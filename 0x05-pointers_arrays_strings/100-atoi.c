@@ -16,6 +16,10 @@ int _atoi(char *s)
 		sign = -1;
 		i++;
 	}
+	else if (s[0] == '+')
+	{
+		i++;
+	}
 
 	/* Converting string to integer */
 	while (s[i] != '\0')
@@ -28,3 +32,10 @@ int _atoi(char *s)
 		{
 			/* Stop conversion if a non-digit character is encountered */
 			break;
+		}
+
+		i++;
+	}
+
+	return result * sign;
+}
